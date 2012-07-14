@@ -1,0 +1,429 @@
+/* @group commun */
+
+body { 
+	font: normal 11px  ProxThin, Helvetica, Arial, sans-serif;	
+	color:#333;
+	position:absolute;
+	top: 0px;
+	left: 0px;
+	margin: 0px; 
+	background: #FFF url(../../contenuPro/image/g0commun/menu_fond.jpg) no-repeat top left; 
+
+
+/*
+background: #EDEDED url(../../contenuPro/image/g0commun/guide.jpg) no-repeat top left; 
+*/	
+}
+
+h4 {
+	margin:0px;
+	padding:0px;
+}
+
+/* @end */
+/* @group principal */
+
+#conteneur-principal {	
+	position:absolute; 
+	width:640px; 
+	left: 67px; 
+	top: 141px;
+	margin: 0px; 	
+	padding: 0px;	
+	}
+
+#corps-de-page {	
+	float:left;
+	width:550px; 
+	margin:0px;
+	padding:0px;
+	}
+	
+#corps-de-page div + div  {	
+	margin-bottom:20px;
+}
+	
+	
+/* @end */
+
+/* @group en tete */
+
+#intro { 
+	display:block;
+	float:left;
+	}
+
+#entete-de-page { 
+	margin:0px;
+	}
+#entete-de-page h1 { 
+	margin:0px;
+	}
+#entete-de-page h1 span {
+	display:none;
+	}
+#entete-de-page h2 { 
+	margin:0px;
+	}
+#entete-de-page h2 span {
+	display:none;
+	}
+	
+/* @end */
+
+/* @group navigation */
+	
+#navigation h2 {	
+	float:left;
+	margin:0px;		
+	margin-bottom:30px;	
+}
+
+#navigation a {
+	font-family: ProxThin, Helvetica, Arial, sans-serif;	
+	text-decoration: underline;	font-style: bold;	color: #666666;	font-size: 11px;	font-weight: bolder;
+	float:left;
+	width:200px; 
+	height:15px;
+	padding-left:70px;	
+	background: url(../../contenuPro/image/g2actualite/retour.gif) left top no-repeat; 
+	
+}
+
+
+/* @end */
+
+/* @group cv */
+#cv  {
+	width:640px;
+
+	margin-bottom:30px;
+	padding-bottom:10px;	
+	background: url(../../contenuPro/image/g0commun/trait02.gif) bottom left repeat-x;
+}
+
+#cv ul, #cv li  {
+	display:block;
+	padding:0px;
+	margin:0px;
+	background-color:red;}
+
+#cv  span, #cv h3 {
+	margin:0px;
+	display:none;
+}
+
+a.cv-pdf {	
+	display: block;
+	float: left;	width: 76px;	height: 16px;
+	margin-right:20px;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../../contenuPro/image/g0commun/commun_27.png', sizingMethod='scale');
+	voice-family: "\"}\"";
+ 	voice-family:inherit;
+	background: url(../../contenuPro/image/g0commun/commun_27.png) no-repeat bottom right; 
+}
+
+a.cv-xml {
+	display: block;
+	float: left;	width: 74px;	height: 16px;
+	margin-right:20px;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../../contenuPro/image/g0commun/commun_31.png', sizingMethod='scale');
+	voice-family: "\"}\"";
+ 	voice-family:inherit;
+	background: url(../../contenuPro/image/g0commun/commun_31.png) no-repeat bottom right; 
+}
+
+a.cv-word {	
+	display: block;
+	float: left;	width: 76px;	height: 16px;
+	margin-right:20px;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../../contenuPro/image/g0commun/template_word.png', sizingMethod='scale');
+	voice-family: "\"}\"";
+	background: url(../../contenuPro/image/g0commun/template_word.png) no-repeat bottom right; 
+}	
+/* @end */
+
+/* @group identite */
+.identite {
+	display: block;
+	width:300px;
+	float: left;
+	margin-bottom:20px;
+
+}
+
+.identite h3 {
+	font-family: ProxThin, Helvetica, Arial, sans-serif;		font-style: bold;	color: #666666;	font-size: 11px;	font-weight: bolder;
+	float:left;
+	width:150px; 
+	height:20px;
+	background: url(../../contenuPro/image/g0commun/trait02.gif) bottom left repeat-x; 
+	padding:0px;	
+	margin:0px;
+	margin-top:0px;
+	margin-bottom:10px;
+	
+}
+
+
+
+.identite .p1 {
+	float:left;
+	width:220px;
+	margin-top:0px;
+	margin-bottom:0px;
+	padding:0px;	
+	font-family: ProxThin, Helvetica, Arial, sans-serif;		font-style: normal;	color: #666666;	font-size: 11px;
+}
+
+.identite .p1 a {
+text-decoration:underline;
+}
+	
+/* @end */
+
+/* @group experiences */
+.experiences {
+	display: block;
+	width:660px;
+	float:left;
+}
+
+.experiences h3 {	
+	display: block;
+	float:left;
+	width:150px; 
+	height:20px;
+	background: url(../../contenuPro/image/g0commun/trait02.gif) top left repeat-x; 	
+	margin:0px;
+}
+
+.experiences h3 span {
+	font-family: ProxThin, Helvetica, Arial, sans-serif;		font-style: bold;	color: #333;	font-size: 11px;	font-weight: bolder;
+	letter-spacing: 0.3em;
+	
+	
+}
+ .experiences ul {
+	width:490px;
+	float:right;	
+	margin:0px;
+	padding:0px;	
+}
+
+ .experiences li {
+	margin:0px;
+	padding:0px;
+}
+
+.experiences h4 , .experiences span{		
+	margin:0px;
+	padding:0px;	
+	font-family: ProxThin, Helvetica, Arial, sans-serif;	font-style: normal;	color:#333;	font-size: 11px;	font-weight: bold;	
+}
+
+.experiences p.p1 {
+	display:inline;	
+	margin:0px;
+	padding:0px;	
+	font-family: ProxThin, Helvetica, Arial, sans-serif;	font-style: normal;	color: #666666;	font-size: 11px;	
+}
+
+
+.experiences li + li {
+	margin-top:10px;
+	}
+/* @end */
+
+/* @group compétences */
+.competences {
+	display: block;
+	width:660px;
+	float:left;
+}
+
+.competences h3 {	
+	display: block;
+	float:left;
+	width:150px; 
+	height:20px;
+	background: url(../../contenuPro/image/g0commun/trait02.gif) top left repeat-x; 	
+	margin:0px;
+	
+	}
+
+.competences h3 span {
+	width:150px; 
+	font-family: ProxThin, Helvetica, Arial, sans-serif;	font-style: bold;	color: #333;	font-size: 11px;	font-weight: bolder;
+	letter-spacing: 0.3em;
+}
+ .competences ul {
+	width:490px;
+	float:right;	
+	margin:0px;
+	padding:0px;
+	
+}
+
+ .competences li {
+	margin:0px;
+	padding:0px;
+}
+.competences h4 {
+	display:inline;
+}
+.competences h4 span {		
+	display:inline;
+	margin:0px;
+	padding:0px;	
+	font-family: ProxThin, Helvetica, Arial, sans-serif;	font-style: normal;	color: #333333;	font-size: 11px;	font-weight: bold;	
+}
+
+.competences p.p1 {
+	display:inline;
+	margin:0px;
+	padding:0px;	
+	font-family: ProxThin, Helvetica, Arial, sans-serif;	font-style: normal;	color: #666666;	font-size: 11px;
+	
+}
+
+.experiences li + li {
+	margin-top:10px;
+	}
+/* @end */
+
+/* @group formation */
+.formation {
+	display: block;
+	width:660px;
+	float:left;
+}
+
+.formation h3 {	
+	display: block;
+	float:left;
+	width:150px; 
+	height:20px;
+	background: url(../../contenuPro/image/g0commun/trait02.gif) top left repeat-x; 	
+	margin:0px;
+	}
+
+.formation h3 span {
+	width:150px; 
+	font-family: ProxThin, Helvetica, Arial, sans-serif;	font-style: bold;	color: #333;	font-size: 11px;	font-weight: bolder;
+	letter-spacing: 0.3em;
+}
+ .formation ul {
+	width:490px;
+	float:right;	
+	margin:0px;
+	padding:0px;
+	
+}
+
+ .formation li {
+	margin:0px;
+	padding:0px;
+}
+
+.formation  span {		
+	margin:0px;
+	padding:0px;	
+	font-family: ProxThin, Helvetica, Arial, sans-serif;	font-style: normal;	color: #333333;	font-size: 11px;	font-weight: bold;	
+}
+
+.formation p.p1 {
+	margin:0px;
+	padding:0px;	
+	font-family: ProxThin, Helvetica, Arial, sans-serif;	font-style: normal;	color: #666666;	font-size: 11px;
+	
+}
+
+
+
+/* @end */
+
+/* @group loisirs */
+.loisirs {
+	display: block;
+	width:660px;
+	float:left;
+}
+
+.loisirs h3 {	
+	display: block;
+	float:left;
+	width:150px; 
+	height:20px;
+	background: url(../../contenuPro/image/g0commun/trait02.gif) top left repeat-x; 	
+	margin:0px;
+	}
+
+.loisirs h3 span {
+	width:150px; 
+	font-family: ProxThin, Helvetica, Arial, sans-serif;	font-style: bold;	color: #333;	font-size: 11px;	font-weight: bolder;
+	letter-spacing: 0.3em;
+}
+ .loisirs ul {
+	width:490px;
+	float:right;	
+	margin:0px;
+	padding:0px;
+	
+}
+
+ .loisirs li {
+	margin:0px;
+	padding:0px;
+}
+
+.loisirs h4  {		
+	display:inline;
+}
+
+.loisirs h4 span {		
+	display:inline;
+	margin:0px;
+	padding:0px;	
+	font-family: ProxThin, Helvetica, Arial, sans-serif;	font-style: normal;	color: #333333;	font-size: 11px;	font-weight: bold;	
+}
+
+.loisirs p.p1 {
+	display:inline;
+	margin:0px;
+	padding:0px;	
+	font-family: ProxThin, Helvetica, Arial, sans-serif;	font-style: normal;	color: #666666;	font-size: 11px;
+	
+}
+
+
+
+/* @end */
+
+
+
+/* @group divers */
+#divers span {
+	margin-left:150px;
+}	
+/* @end */
+
+
+
+/* @group bas de page */
+
+
+
+#bas-de-page  span { 
+	position:relative;
+	float:left;
+	margin-top:20px;
+	margin-bottom:20px;
+	font:  normal 9px ProxThin, Helvetica, Arial, sans-serif;	
+	}
+	
+/* @end */
+	
+	
+	
+	

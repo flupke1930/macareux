@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+Données brutes sans les balises qui permette de donnée les widgets pour l'édition. 
+Les balises en sont pas générique pour l'instant.
+-->
+
+
+<!-- Encadre -->
+<encadre id="020101">
+	<titre>Développement</titre>
+	<liens>
+		<lien url="http://www.eclipse.org">Eclipse</lien>
+		<lien url="http://www.phpindex.com">www.phpindex.com</lien>
+		<lien url="http://">X-Forms</lien>
+		<lien url="http://">Maven</lien>
+		<lien url="http://">Hibernate</lien>
+		<lien url="http://">Moteur de règles : Drools</lien>
+		<lien url="http://">Tapestry</lien>
+	</liens>
+	<paragraphe>
+		C'est un paragraphe.
+	</paragraphe>
+</encadre>
+

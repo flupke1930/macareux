@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+Données brutes sans les balises qui permette de donnée les widgets pour l'édition. 
+Les balises en sont pas générique pour l'instant.
+-->
+
+
+<!-- Encadre -->
+<encadre id="010301">
+	<titre>Eclipse</titre>
+	<liens>
+		<lien url="http://www.eclipse.org">Eclipse</lien>
+		<lien url="http://www.phpindex.com">www.phpindex.com</lien>
+	</liens>
+	<paragraphe>
+		C'est un paragraphe.
+	</paragraphe>
+</encadre>
+

@@ -1,0 +1,22 @@
+@CHARSET "UTF-8";
+
+div {
+	display: block;
+	float: left;
+	border-left: 1px solid;
+}
+
+#encadre {
+	width : 200px;
+	float : right;
+}
+
+a {
+	display: block;
+}
+
+li {
+	display: block;
+	float: left;
+	margin: 5px;
+}

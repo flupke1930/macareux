@@ -1,0 +1,185 @@
+
+/* @group commun */
+h3 { 
+	font: 14px; 
+	letter-spacing: 1px; 
+	margin-bottom: 0px; 
+	}
+	
+a {
+	font: 11px arial; 
+}	
+	
+a:link { 
+	font-weight: bold; 
+	text-decoration: none; 
+	color: #666;
+	}
+	
+a:visited { 
+	font-weight: bold; 
+	text-decoration: none; 
+	color: #999;
+	}
+	
+a:hover, a:active { 
+	text-decoration: underline; 
+	color: #000;
+	}
+	
+div {
+	float:left;
+	margin:0px;
+}
+
+span {
+	font-family: ProxThin, Helvetica, Arial, sans-serif;	
+	font-style: normal;
+	color: black;
+	font-size: 11px;
+}
+	
+/* @end */
+
+
+/* @group menu */
+
+/* @group logo */
+#logo {
+	position:absolute; 
+	width:20px; 
+	height:20px; 
+	top: 82px;
+	left: 17px;
+	margin:0px;
+	padding:0px;	
+}
+
+#logo img {
+	border:0px;
+}
+	
+/* @end */
+
+#menu-secondaire01 span, #menu-secondaire02 span, #menu-principal01 span {
+	display:none;
+}
+
+#menu {
+	position:absolute; 
+	top: 0px; 
+	left: 0px;	
+	margin: 0px;
+	padding: 0px;
+	z-index: 10;
+
+}
+#menu ul {
+	display: block;	
+	float: left;
+	padding:0px;
+	margin:0px;
+}
+
+#menu li {
+	display: block;
+	float: left;	
+	padding:0px;
+	margin:0px;
+}
+
+/* @group menuprincipal01 */
+
+#menu-principal01 {
+	position: absolute;
+	top: 81px;
+	left: 51px;
+	margin:0px;
+	padding:0px;
+	width:413px; 
+	height:20px; 
+
+	}
+
+a.menu-video {	 
+	display: block;
+	width: 72px;
+	height: 20px;
+
+	background:  url(../image/menu/menu_principal_00.png) no-repeat bottom right ; 
+	float: left;
+}
+
+
+a.menu-video:hover {
+
+	background: url(../image/menu/menu_principal_actif_00.png) no-repeat bottom right ; 
+
+}
+
+a.menu-nouvelle {	 
+	display: block;
+	width: 72px;
+	height: 20px;
+
+	background:  url(../image/menu/menu_principal_03.png) no-repeat bottom right ; 
+	float: left;
+}
+
+a.menu-nouvelle:hover {
+
+	background: url(../image/menu/menu_principal_actif_03.png) no-repeat bottom right ; 
+
+}
+
+a.menu-illustration {	 
+	display: block;
+	width: 97px;
+	height: 20px;
+
+	background: url(../image/menu/menu_principal_02.png) no-repeat bottom right ; 
+	float: left;
+}
+
+a.menu-illustration:hover {
+
+	background: url(../image/menu/menu_principal_actif_02.png) no-repeat bottom right ; 
+
+}	
+
+a.menu-photographie {	 
+	display: block;
+	width: 80px;
+	height: 20px;
+
+	background: url(../image/menu/menu_principal_01.png) no-repeat bottom right ; 
+	float: left;
+}
+
+a.menu-photographie:hover {
+
+	background: url(../image/menu/menu_principal_actif_01.png) no-repeat bottom right ; 
+
+}	
+
+a.menu-email {
+	 
+	display: block;
+	width: 91px;
+	height: 20px;
+	background:  url(../image/menu/menu_principal_04.png) no-repeat bottom right; 
+	float: left;
+}	
+
+a.menu-email:hover {
+	background:  url(../image/menu/menu_principal_actif_04.png) no-repeat bottom right; 
+
+}
+	
+/* @end */
+
+
+
+
+
+/* @end */

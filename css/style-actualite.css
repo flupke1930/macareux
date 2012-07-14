@@ -1,0 +1,450 @@
+/* @group commun */
+
+
+
+body { 	font: normal 11px  ProxThin, Helvetica, Arial, sans-serif;		color:black;	position:absolute;	top: 0px;	left: 0px;	margin: 0px; 
+	background: #CCC url(../image/menu/bandeau01_fond.png) repeat-x top left;
+}
+/*bleu #0057b0*/
+/*kaki #777900*/
+
+#menu {
+	/* SURCHARGE du menu par defaut */
+	position:absolute; 
+	top: 0px; 
+	left: 0px;	
+	margin: 0px;
+	padding: 0px;
+	width: 1023px;
+	height:101px;
+	background: url(../image/menu/bandeau01_deco_01.png) no-repeat top left;
+}
+
+
+
+
+/* @end */
+/* @group conteneur-principal */
+
+#conteneur-principal {	
+	width:1023px; 
+	height:768px;	left: 0px; 	top: 0px;	margin: 0px; 		padding: 0px;
+	padding-bottom:20px;
+	background :  url(../image/_MG_3821.jpg) no-repeat top left;
+	/* #016688*/
+
+	/*border: solid 1px;*/
+	}
+
+#corps-de-page {		width:700px; 
+		margin:0px;	margin-top:100px;	margin-left:122px;	padding:30px;	
+	background:  url(../image/menu/bandeau01_fond.png) repeat;
+	}
+	
+/* @end */
+
+/* @group en tete */
+
+#intro { 
+	display:block;
+	float:left;
+	}
+
+#entete-de-page { 
+	margin:0px;
+	}
+#entete-de-page h1 { 
+	margin:0px;
+	}
+#entete-de-page h1 span {
+	display:none;
+	}
+#entete-de-page h2 { 
+	margin:0px;
+	}
+#entete-de-page h2 span {
+	display:none;
+	}
+	
+/* @end */
+
+/* @group navigation */
+	
+#navigation h2 {	
+	float:left;
+	margin:0px;		
+	margin-bottom:30px;	
+}
+
+#navigation a {
+	font-family: ProxThin, Helvetica, Arial, sans-serif;	
+	text-decoration: underline;	font-style: bold;/*	color: #99BBCA;*/	font-size: 11px;	font-weight: bolder;
+	float:left;
+	width:200px; 
+	height:15px;
+	padding-left:70px;	
+	background: url(../../../contenufra/image/g2actualite/retour.png) left top no-repeat; 
+}
+
+#navigation a:link { 
+	font-weight: bold; 
+	text-decoration: none; 
+	color: white;
+	}
+	
+#navigation a:visited { 
+	font-weight: bold; 
+	text-decoration: none; 
+	color: white;
+	}
+	
+#navigation a:hover, a:active { 
+	text-decoration: underline; 
+	color: white;
+	}
+
+
+/* @end */
+
+/* @group encadre */
+	
+#encadre  {	
+	position:absolute;
+	top: 150px;
+	left:1030px;
+	width:211px;
+	background:  url(../image/cadrebas_arrondi.png) bottom  repeat-x !important;
+	padding: 0px;
+	margin:0px;
+		padding-bottom: 12px;
+	
+}
+
+#encadre div {
+	display:block;
+	float:left;
+	padding: 0px;
+	margin:0px;
+	margin-right: 5px;
+	padding-top: 11px;
+	background:  url(../image/cadrehaut_arrondi.png) no-repeat top !important;
+	
+}
+
+
+ #encadre  div +  div  {
+	display:block;
+	float:left;
+	padding: 0px;
+	margin:0px;
+	padding-top: 0px;
+	padding-top: 51px;
+	background:  url(../image/cadrehautbas_arrondi.png) no-repeat top !important;
+	
+}
+
+#encadre h3 {
+	display:block;
+	float:left; 
+	width:199px;
+	padding-top: 0px;
+	padding-left:5px;
+	padding-right:5px;
+	padding-bottom:10px;
+	margin:0px;
+	margin-top:0px;		
+	background: url(../image/trait03.gif) bottom left repeat-x; 
+	border-right:1px dotted white;
+	border-left: 1px dotted white;
+	
+	
+}
+
+#encadre h3 span {
+	font-family: ProxThin, Helvetica, Arial, sans-serif;		color: white;	font-size: 11px;	font-weight: bolder;
+}
+
+#encadre img {
+	float:left;	
+	margin:0px;
+	padding:0px;
+	margin-bottom:10px;
+	border: 1px solid;
+	clear:left;
+}
+
+
+#encadre h4 {
+	display:block;
+	float:right;
+	width:200px;
+	padding:5px;
+	margin:0px;
+	margin-bottom:10px;
+	clear:right;
+}
+
+	
+#encadre h4 span{	
+	margin:0px;
+	padding:0px;	
+	font-family: ProxThin, Helvetica, Arial, sans-serif;		font-style: normal;	color: white;	font-size: 11px;	
+
+}
+
+
+
+#encadre .p1,  #encadre ul{		
+	display:block;
+	float:right;
+	width:199px;
+	margin:0px;
+	margin-bottom:0px;
+	padding:5px;
+	border-right:1px dotted white;
+	border-left: 1px dotted white;
+	
+	
+}
+
+#encadre li  {
+		list-style-type: none
+	}
+
+
+ #encadre  .p1 span {	
+	margin-bottom:0px;
+	padding:0px;	
+	font-family: ProxThin, Helvetica, Arial, sans-serif;		font-style: normal;	color: white;		font-size: 11px;	
+}
+
+#encadre .p1 a {
+	text-decoration:underline;
+}
+
+#encadre a:link { 
+	text-decoration: none; 
+	color: #fff;
+	}
+	
+#encadre a:visited { 
+	text-decoration: none; 
+	color: #999;
+	}
+	
+#encadre a:hover, a:active { 
+	text-decoration: underline; 
+	color: white;
+	}
+
+
+	
+/* @end */
+
+/* @group actualite-rubrique */
+.actualite-rubrique {
+	float: left;
+	width:550px;
+	margin-bottom:40px;
+}
+
+div.actualite-rubrique + div.actualite-rubrique {
+	margin-top:20px;
+	}
+div.actualite-rubrique div + div {
+	float:left;
+	margin-top:20px;
+	}
+.actualite-rubrique h3 + div {
+	margin-top:0px;	
+	float:left;
+}
+.actualite-rubrique  div {
+	margin-top:10px;
+	float:left;
+}
+
+.actualite-rubrique h3 {
+	font-family: ProxThin, Helvetica, Arial, sans-serif;		font-style: bold;	font-size: 11px;	font-weight: bolder;
+	float:left;
+	width:550px; 
+	height:20px;
+	background: url(../image/trait02.gif) bottom left repeat-x; 	margin:0px;
+	margin-top:0px;
+	margin-bottom:10px;
+}
+
+.actualite-rubrique h3 span {
+	/*color: #99BBCA;*/
+	color: white;
+	
+}
+
+.actualite-rubrique img {
+	float:left;
+	width:100px;
+	margin:0px;
+	padding:0px;
+	border: 1px solid;
+	border-color:black;
+}
+
+.actualite-rubrique h4 {
+	float:right;
+	width:400px;
+	margin-top:0px;
+	margin-bottom:0px;
+	padding:0px;	
+	font-family: ProxThin, Helvetica, Arial, sans-serif;		font-style: normal;	/*color: #99BBCA;*/
+	color: white;	font-size: 11px;	font-weight: bold;
+}
+
+.actualite-rubrique .p1  {
+	float:right;
+	width:400px;
+	margin-top:0px;
+	margin-bottom:0px;
+	padding:0px;	
+	font-family: ProxThin, Helvetica, Arial, sans-serif;		font-style: normal;		font-size: 11px;
+}
+
+.actualite-rubrique span {
+	/*color: #99BBCA;*/
+	color:white;
+}
+
+.actualite-rubrique .p2 {
+	float:right;
+	width:212px;
+	margin-top:0px;
+	padding:0px;
+}
+
+.actualite-rubrique a span {
+	display: none;
+}
+
+.actualite-rubrique a.ensavoirplus {
+	display: block;
+	height:15px;
+	width:57px;
+	margin-top:10px;
+	background: url(../image/ensavoirplus.png) no-repeat top left; 
+}	
+
+
+
+
+
+
+/* @end */
+
+/* @group actualite-detail */
+#actualite-detail {	
+	width:550px;	
+	
+}
+#actualite-detail p{
+	
+/*color: #99BBCA;*/
+color: white;
+}
+
+#actualite-detail h3 {
+	float:left;
+	width:550px; 
+	height:20px;
+	background: url(../image/trait02.gif) bottom left repeat-x; 	margin:0px;
+	margin-top:0px;
+	margin-bottom:10px;
+}
+
+#actualite-detail h3 span {
+	font-family: ProxThin, Helvetica, Arial, sans-serif;		font-style: bold;/*	color: #99BBCA;*/
+	color:white;	font-size: 11px;	font-weight: bolder;
+}
+
+#actualite-detail img {
+	float:left;
+	width:300px;
+	margin:0px;
+	padding:0px;
+	margin-right:15px;
+	margin-bottom:15px;
+	border: 1px solid;
+	
+}
+
+
+#actualite-detail h4 {
+	display:block;
+	float:right;
+	width:220px;
+	margin-top:0px;
+	margin-bottom:0px;
+	
+	margin-top:0px;
+	margin-bottom:0px;
+	padding:0px;	
+	font-family: ProxThin, Helvetica, Arial, sans-serif;		font-style: normal;/*	color: #99BBCA;*/
+	color:white;	font-size: 11px;	font-weight: bold;
+}
+
+#actualite-detail .p1 {		
+	display:block;
+	float:right;
+	width:220px;
+	margin-top:10px;
+	margin-bottom:0px;
+/*	color: #99BBCA;*/
+
+	clear:right;
+}
+
+ #actualite-detail  .p1 span {	
+	margin-top:10px;
+	margin-bottom:0px;
+	padding:0px;	
+	font-family: ProxThin, Helvetica, Arial, sans-serif;		font-style: normal;	color: #99BBCA;	font-size: 11px;
+	
+}
+
+#actualite-detail .p1 a {
+	text-decoration:underline;
+}
+
+
+#actualite-detail a:link { 
+	font-weight: bold; 
+	text-decoration: none; 
+	color: #fff;
+	}
+	
+#actualite-detail a:visited { 
+	font-weight: bold; 
+	text-decoration: none; 
+	color: #999;
+	}
+	
+#actualite-detail a:hover, a:active { 
+	text-decoration: underline; 
+	color: white;
+	}
+
+/* @end */
+
+
+/* @group bas de page */
+#bas-de-page  { 
+	width:700px;
+	height:200px	margin:0px;	padding:0px;
+	margin-left: 122px;}
+	#bas-de-page .p1 span {
+	color:white;	font:normal 8px ProxThin, Helvetica, Arial, sans-serif;}
+
+	
+/* @end */
+	
+	
+	
+	

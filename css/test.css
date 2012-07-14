@@ -1,0 +1,14 @@
+
+
+
+
+	
+ p.test {
+	position:absolute;
+	z-index: 3;
+	top:0px;
+	left: 0px;
+	width:71px; 	height:15px; 	
+	margin:0px;
+	background: blueviolet url(../../../contenufra/image/g0commun/contour_image_legende.gif) no-repeat top left;
+}

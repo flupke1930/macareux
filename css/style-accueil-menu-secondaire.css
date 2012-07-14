@@ -1,0 +1,77 @@
+
+
+/* @group menu-secondaire01 */
+
+#menu-secondaire01 {
+	
+	/*pas affiché en cours
+	doit etre sous forme d'image
+	ds un coin
+	*/
+	/*display:none;*/
+	display:block;
+	float:left;
+	position:absolute; 
+	top: 268px; 
+	left: 879px;	
+	width:93px; 
+	height:43px; 
+	/*background-color: orangered;	*/
+}
+
+
+/* @end */
+
+/* @group menu-secondaire02 */
+#menu-secondaire02 {
+	position:absolute;
+	top: 223px; 
+	left: 375px; 
+	width:209px; 
+	height:20px; 
+	background-color: blue;
+}
+
+#menu-secondaire02 span {
+	display:block;
+	width: 290px;
+	margin-top:-19px;
+	text-align: right;	
+	color:#FFF;
+	}
+
+a.menu-robots {	 
+	display: block;
+	/*float: left;*/
+	width: 290px;
+	height: 91px;
+	background: #fff url(../../../contenufra/image/g0commun/roboimage_020511.jpg) no-repeat bottom right;
+ 
+
+	border: #000 solid 1px;
+}
+	
+a.menu-becassine {	 
+	display: block;
+	/*float: left;*/
+
+	margin-top:47px;
+	width: 290px;
+	height: 91px;
+	background: #fff url(../../../contenufra/image/g0commun/becassineimage_020511.jpg) no-repeat bottom right;
+	
+	border: #000 solid 1px;
+}
+	
+a.menu-stenope {	 
+	display: block;
+	/*float: left;*/
+	margin-top:44px;
+	width: 290px;
+	height: 91px;
+	background: #fff url(../../../contenufra/image/g0commun/stenopeimage_020511.jpg) no-repeat bottom right;
+	border: #000 solid 1px;
+}
+/* @end */	
+
+

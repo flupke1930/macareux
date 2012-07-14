@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+Données brutes sans les balises qui permette de donnée les widgets pour l'édition. 
+Les balises en sont pas générique pour l'instant.
+-->
+
+
+<!-- groupe -->
+<groupes>
+	<groupe id="030101">
+		Album
+	</groupe>
+	<groupe id="030102">
+		Livre
+	</groupe>
+</groupes>
+
+

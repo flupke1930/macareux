@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Données brutes sans les balises qui permette de donnée les widgets pour 
+	l'édition. Les balises en sont pas générique pour l'instant. -->
+
+
+<!-- Article -->
+<article id="0102">
+	<page idref="0501" affichage="Z" /><!-- Page (article ) -->
+	<page idref="0502" affichage="1" /><!-- Page (sommaire ) -->
+
+	<groupe idref="030102" />
+
+	<!-- mode d'affichage de l'article -->
+	<affichage>
+		<mode type="1">
+			<contenu>titre</contenu>
+			<contenu>resume</contenu>
+			<contenu taille="vignette">image</contenu>
+		</mode>
+		<mode type="2">
+			<contenu>titre</contenu>
+			<contenu>corps</contenu>
+			<contenu>image_grande</contenu>
+		</mode>
+	</affichage>
+
+	<titre>Le Voyage à nantes</titre>
+	<date>
+		<creation></creation>
+		<modification></modification>
+	</date>
+
+	<resume>
+		C'est le titre de ce roman de SF, écrit par Richard Matheson,
+		auteur également de "L'homme qui retrécit".
+	</resume>
+
+	<image taille="vignette" url="img" src="../../image/article/jesuisunelegende_100x50.jpg" largeur="100" hauteur="50" />
+
+	<corps>
+		<image taille="grande" url="" largeur="" hauteur="" />
+		<paragraphe>Robert Neville seul survivant d'une épidémie se retrouve
+			seul humain sur terre. L'action se situe sur la côte ouest des
+			états-unis en 1976-79.Le reste des humains sont devenus des vampires
+			qu'il doit combattre pour rester en vie. 
+		</paragraphe>
+		<image taille="grande" url="" largeur="" hauteur="" />
+		<paragraphe>
+			Le roman étant écrit en 1954 ce livre d'anticipation
+			explore les thèmes
+			classiques de la fin de la civilisation, de la
+			notion de l'humain.
+		</paragraphe>
+	</corps>
+</article>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+Données brutes sans les balises qui permettent de donner les widgets pour l'édition. 
+Les balises en sont pas générique pour l'instant.
+-->
+
+
+
+<!-- Article -->
+<page id="0503">
+	<titre>Je suis une légende</titre>
+	<menu idref="040101" />
+	<modele idref="0101"/>	
+	<parent idref="0502"/><!-- lien de retour avec le sommaire-->
+	<date>
+		<creation />
+		<modification />
+		<peremption />
+	</date>
+	<encadre idref="0201" />
+	<menu idref="0401" />
+	<article idref="0101"/>
+</page>
+

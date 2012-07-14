@@ -1,0 +1,92 @@
+body { 	font: normal 11px  ProxThin, Helvetica, Arial, sans-serif; 	color:black;	position:absolute;	top: 0px;	left: 0px;	margin: 0px; 
+	background: #FFF url(../../../contenufra/image/g3experimental/fond_ucode.gif) no-repeat 0px 0px;
+}
+
+#menu {
+	/* SURCHARGE du menu par defaut */
+	position:absolute; 
+	top: 0px; 
+	left: 0px;	
+	margin: 0px;
+	padding: 0px;
+	width: 1023px;
+	height:66px;
+	background:  url(../../../contenufra/image/g3experimental/menu_bandeau_ucode.png) no-repeat top left;
+}
+
+
+#menu-principal01 {
+	/* SURCHARGE du menu par defaut */
+	position:absolute; 
+	top:45px; 
+	left:458px;
+	margin:0px;
+	padding:0px;
+	width:63px; 
+	height:17px; 
+}#conteneur-principal {		width:1022px; 		height:766px;	left: 0px; 	top: 0px;	margin: 0px; 		padding: 0px;
+	border: solid 1px;
+	margin-bottom: 10px;
+	
+	}
+
+#entete-de-page { 			position:absolute;			top: 73px;			left: 384px;			padding:0px;			color:black;		margin:0px;			padding:0px;			background:blueviolet;	}
+	#entete-de-page h1 {		display:block;	width: 238px;	height: 41px;		padding:0px;		margin:0px; 		background:  url(../../../contenufra/image/g3experimental/ucode_03.png) no-repeat top left;}
+	#entete-de-page h1 span {
+	display:none;	}
+		#entete-de-page h2 { 		}
+		#entete-de-page h2 span {	}
+		#entete-de-page p span {	float:left;
+		width:400px;
+		padding:0px;	margin:0px;
+		}
+	
+		#entete-de-page p + p {
+	width:500px;
+	margin-top:15px;
+	padding-top:10px;
+	margin-bottom:31px;
+float:left;
+	background:  url(../../../contenuPro/image/g0commun/trait02.gif) top left repeat-x; 	}	
+#contenu01 {	position:absolute;
+		left: 545px; 	top: 222px;	width:148px; 
+		height:11px;
+		background:  url(../../../contenufra/image/g3experimental/ucode_07.png) top left repeat-x; }
+
+#contenu01  span {	display:none;}	
+	
+#contenu02 {	position:absolute;
+		left: 582px; 	top: 261px;	width:276px; 
+		height:17px;
+		background:  url(../../../contenufra/image/g3experimental/ucode_11.png) top left repeat-x; }
+
+#contenu02  span {	display:none;}
+
+#contenu03 {	position:absolute;
+	left: 596px; 	top: 349px;	width:198px; 
+		height:18px;
+		background:  url(../../../contenufra/image/g3experimental/ucode_15.png) top left repeat-x; }
+
+#contenu03  span {	display:none;}
+
+#contenu04 {	position:absolute;
+		left: 560px; 	top: 449px;	width:216px; 
+	height:14px;
+	background:  url(../../../contenufra/image/g3experimental/ucode_19.jpg) top left repeat-x; }
+
+#contenu04  span {	display:none;}
+	
+	
+
+#corps-de-page {	width:800px; 
+	left: 0px; 	top: 0px;	margin:0px;	margin-top:0px;	margin-left:0px;	padding:0px;		}
+
+
+	
+	
+	#liens01  {		/*pas afficher pour l'instant*/
+		display:none;
+		float:right;		
+	}	#liens01  ul,#liens01  li {	color:#333;	list-style: circle;}#liens01  span {	display:none;}	#liens01 h3 {	margin-top:23px;	margin-bottom:10px;	padding:0px;		width:334px;	height:24px;	background: url(../../../contenufra/image/g0commun/commun_49.png) no-repeat top left; }#liens02 ul {	color:#999;	}#liens02 h3 {	display:block;	margin-top:10px;	margin-bottom:10px;	padding:0px;	background-color:#333;		width:334px;	height:2px;		background: url(../../../contenufra/image/g0commun/trait02.gif) repeat-x bottom right; }#liens02  span {	display:none;}#liens02 a img {	margin:0px;	padding:0px;	margin-left:25px;	margin-top:10px;	border:0px;}#liens02 ul a {	margin:0px;	padding:0px;	}	#bas-de-page  { position:absolute;top: 600px;left: 72px;margin:0px;padding:0px;}
+	
+	#bas-de-page .p1 span {	font:  normal 8px arial; }					
