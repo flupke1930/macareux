@@ -4,9 +4,8 @@ include_once 'xmlUtilitaire.php';
 include_once 'afficherArticleSommaire.php';
 
 /**
- *
- * Transformation du XML en HTML (utilisation d'un modèle)
- *
+ * Permet la transformation d'un fichier de contenu en XML en page xHTML (utilisation d'un modèle).
+ * Actuellement on a encore du code en dure par rapport au id xhtml.
  */
 
 
@@ -31,27 +30,27 @@ function fabricationUL($html,$ul,$lesEntreesXml) {
 			$li =$html->createElement("li");
 			$a =$html->createElement("a");
 			$span=$html->createElement("span");
-			
+				
 			$span->appendChild($html->createTextNode($ligne->firstChild->nodeValue));
-			
-			
+				
+				
 			//Récupération des attributs de style dans le xml
 			$lesAttributs=recuperationAttributs($ligne);
-			
-			
+				
+				
 			//Attributs
 			foreach ($lesAttributs as $attribut) {
 				if ($attribut->name=="idRef") {
-						$page= new DOMDocument();
-						$page->load($glb_chemin_relatif."/xml/page/page".$attribut->value.".xml");
-						//Récupération des entree;
-						$xpath = new DOMXPath($page);
-						$type = $xpath->query("/page/@type")->item(0)->value;
- 						$a->setAttribute("href","afficher.php?idPage=".$attribut->value."&cheminModele=".$type);	
+					$page= new DOMDocument();
+					$page->load($glb_chemin_relatif."/xml/page/page".$attribut->value.".xml");
+					//Récupération des entree;
+					$xpath = new DOMXPath($page);
+					$type = $xpath->query("/page/@type")->item(0)->value;
+					$a->setAttribute("href","afficher.php?idPage=".$attribut->value."&cheminModele=".$type);
 				} else {
 					$a->setAttribute($attribut->name,$attribut->value);
 				}
-				
+
 			}
 			$a->appendChild($span);
 			$li->appendChild($a);
@@ -80,7 +79,7 @@ function debugXML($obj ){
 		$i=0;
 		foreach ($obj as $l)
 		{
-		//	echo "--".$i++;
+			//	echo "--".$i++;
 			$n=$doc->importNode($l,true);
 			$doc->appendChild($n);
 		}
@@ -94,37 +93,29 @@ function debugXML($obj ){
 
 	}
 
-//	echo "<br>------<pre>".htmlentities($doc->saveXML());
-//	echo "</pre>------";
+	//	echo "<br>------<pre>".htmlentities($doc->saveXML());
+	//	echo "</pre>------";
 }
 
 /**
  * Fabrication du menu
  */
-function fabricationMenu($html,$idref) {
+function fabricationMenu($html,$idref,$idMenu) {
 	global $glb_chemin_relatif ;
 	try {
 		//
 		$menu= new DOMDocument();
 		$menu->load($glb_chemin_relatif."xml/menu/menu".substr($idref,0,4).".xml");
-
-		
 		// Localisation du menu (div) dans le modèle HTML.
 		$html_xpath = new DOMXPath($html);
-		$ul=$html_xpath->query("//div[@id='menu-principal01']/ul")->item(0);
-		
-		
+		$ul=$html_xpath->query("//div[@id='".$idMenu."']/ul")->item(0);
 		// Récupération des entree;
 		$xpath = new DOMXPath($menu);
 		$lesEntreesXml = $xpath->query("/menu/entree");
-		
-		
-		
 		$ul=fabricationUL($html,$ul,$lesEntreesXml);
+
 		
-		
-		//Sous-menu
-		
+
 
 	} catch (Exception $e) {
 		echo $e;
@@ -168,9 +159,9 @@ function fabricationDIV($html,$corpsHtml,$lesLignesXml,$atrbs,$ele,$idPageAppel)
 				//
 				$i=0;
 				foreach ($lesGroupesXml as $groupeXml) {
-				//	echo "<br>---------------------------------------------------------";
-				//	echo "<br>i=".$i++;
-				//	echo "<br>";
+					//	echo "<br>---------------------------------------------------------";
+					//	echo "<br>i=".$i++;
+					//	echo "<br>";
 
 					debugXML($groupeXml);
 					$div=$html->createElement("div");
@@ -256,9 +247,9 @@ function fabricationDIV($html,$corpsHtml,$lesLignesXml,$atrbs,$ele,$idPageAppel)
 						debugXML($div);
 						//debug_print_backtrace();
 					}// boucle article
-						
+
 					$corpsHtml->appendChild($div);
-						
+
 				}//boucle grp
 
 
@@ -452,10 +443,12 @@ function fabricationPage($idPage,$cheminModele){
 	/*
 	 * Fabrication du menu.
 	 */
-	$menu=$page->getElementsByTagName("menu")->item(0);
-	if ($menu!=null) {
-		$html=fabricationMenu($html,$menu->getAttribute("idref"));
-	}
+	$listeMenu=$page->getElementsByTagName("menu");
+	
+	if ($listeMenu!=null) {
+		foreach ($listeMenu as $menu){
+		$html=fabricationMenu($html,$menu->getAttribute("idref"),$menu->getAttribute("id"));
+	}}
 
 	/*
 	 * Fabrication encadre.

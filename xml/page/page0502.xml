@@ -8,6 +8,7 @@
 <page id="0502" type="sommaire">
 	<titre>Sommaire</titre>
 	<menu idref="040101"/>
+	
 	<modele idref="0301" />
 
 	<!-- Comment afficher l'article par la page ou par le lien vers l'article 

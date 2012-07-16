@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menu id="040102">
+	<entree idRef="0501" class="menu-architecture">Architecture</entree>
+	<entree idRef="0501" class="menu-nature">Nature</entree>
+	<entree idRef="0501" class="menu-technique">Technique</entree>
+</menu>

@@ -1,7 +1,7 @@
 /* @group conteneurPrincipal */
 
 body { 	font: normal 11px  ProxThin, Helvetica, Arial, sans-serif;		color:black;	position:absolute;	top: 0px;	left: 0px;	margin: 0px; 
-	background:  url(../../../contenufra/image/g0commun/menu/bandeau01_fond.png) repeat-x top left;
+	background:  url(../image/menu/bandeau01_fond.png) repeat-x top left;
 	background-color: #ccc;
 }
 /*marron #9A6714*/
@@ -12,7 +12,7 @@ body { 	font: normal 11px  ProxThin, Helvetica, Arial, sans-serif;		color:blac
 	width:1023px; 
 	height:768px;	left: 0px; 	top: 0px;	margin: 0px; 		padding: 0px;
 	padding-bottom:20px;
-	background: url(../../../contenufra/image/g0commun/_MG_3870.jpg) no-repeat  ;
+	background: url(../image/_MG_3870.jpg) no-repeat  ;
 	/* #016688*/
 
 	/*border: solid 1px;*/
@@ -28,7 +28,7 @@ body { 	font: normal 11px  ProxThin, Helvetica, Arial, sans-serif;		color:blac
 	padding: 0px;
 	width: 1023px;
 	height:101px;
-	background: url(../../../contenufra/image/g0commun/menu/bandeau01_deco_01.png) no-repeat top left;
+	background: url(../image/menu/bandeau01_deco_01.png) no-repeat top left;
 }
 
 
@@ -71,7 +71,7 @@ a.menu-2145 {
 	display: block;
 	width: 88px;
 	height: 22px;
-	background:  url(../../../contenufra/image/g0commun/menu/menu_secondaire_01.png) no-repeat bottom right;
+	background:  url(../image/menu/menu_secondaire_01.png) no-repeat bottom right;
 	float: left;
 }
 
@@ -81,7 +81,7 @@ a.menu-2144 {
 	display: block;
 	width: 82px;
 	height: 22px;
-	background:  url(../../../contenufra/image/g0commun/menu/menu_secondaire_03.png) no-repeat bottom right;
+	background:  url(../image/menu/menu_secondaire_03.png) no-repeat bottom right;
 	float: left;
 }
 
@@ -91,7 +91,7 @@ a.menu-2142 {
 	display: block;
 	width: 61px;
 	height: 22px;
-	background:  url(../../../contenufra/image/g0commun/menu/menu_secondaire_02.png) no-repeat bottom right;
+	background:  url(../image/menu/menu_secondaire_02.png) no-repeat bottom right;
 	float: left;
 }
 
@@ -103,7 +103,7 @@ a.menu-architecture {
 	display: block;
 	width: 88px;
 	height: 22px;
-	background:  url(../../../contenufra/image/g0commun/menu/menu_secondaire_01.png) no-repeat bottom right;
+	background:  url(../image/menu/menu_secondaire_01.png) no-repeat bottom right;
 	float: left;
 }
 
@@ -113,7 +113,7 @@ a.menu-technique {
 	display: block;
 	width: 82px;
 	height: 22px;
-	background:  url(../../../contenufra/image/g0commun/menu/menu_secondaire_03.png) no-repeat bottom right;
+	background:  url(../image/menu/menu_secondaire_03.png) no-repeat bottom right;
 	float: left;
 }
 
@@ -123,7 +123,7 @@ a.menu-nature {
 	display: block;
 	width: 61px;
 	height: 22px;
-	background:  url(../../../contenufra/image/g0commun/menu/menu_secondaire_02.png) no-repeat bottom right;
+	background:  url(../image/menu/menu_secondaire_02.png) no-repeat bottom right;
 	float: left;
 }
 
@@ -140,7 +140,7 @@ a.menu-nature {
 	position:absolute;	width:901px; 
 	height:668px;
 	left: 122px; 	top: 100px;	margin:0px;
-	background:   url(../../../contenufra/image/g0commun/menu/bandeau20_fond.png) repeat;
+	background:   url(../image/menu/bandeau20_fond.png) repeat;
 	}
 	
 	#widget-illustration {
@@ -161,7 +161,7 @@ a.deplacement-gauche  {
 	display: block;
 	float: left;
 	margin-right:5px;
-	background: url(../../../contenufra/image/g2galerie/bouton_gauche.png) left top no-repeat;	
+	background: url(../image/bouton_gauche.png) left top no-repeat;	
 	width:13px;
 	height:13px;
 
@@ -171,7 +171,7 @@ a.deplacement-stop  {
 	display: block;
 	float: left;
 	margin-right:5px;
-	background: url(../../../contenufra/image/g2galerie/bouton_stop.png) left top no-repeat; 
+	background: url(../image/bouton_stop.png) left top no-repeat; 
 	width:13px;
 	height:13px;
 	
@@ -181,7 +181,7 @@ a.deplacement-droite {
 	display: block;
 	float: left;
 	margin-right:5px;
-	background: url(../../../contenufra/image/g2galerie/bouton_droite.png) left top no-repeat; 
+	background: url(../image/bouton_droite.png) left top no-repeat; 
 	width:13px;
 	height:13px;	
 }

@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Données brutes sans les balises qui permette de donnée les widgets pour 
 	l'édition. Les balises en sont pas générique pour l'instant. -->
-
-<!--juillet 2012 : problème conceptuel, on a des attributs css dans du contenu 
-	XML, le xml ne devrait pas avoir d'attribut pour la mise en forme. -->
 <!-- Menu -->
 <menu id="040101">
 	<entree idRef="0501" class="menu-video">Video</entree>
@@ -11,8 +8,5 @@
 	<entree idRef="0501" class="menu-illustration">Illustration</entree>
 	<entree idRef="0502" class="menu-nouvelle">Articles</entree>
 	<entree idRef="0501" class="menu-email">Courriel</entree>
-	<menu id="04010101">
-		<entree idRef="0501" class="menu-video">Architecture</entree>
-		<entree idRef="0501" class="menu-video">Nature</entree>
-	</menu>
 </menu>
+

@@ -8,6 +8,9 @@ Les balises en sont pas générique pour l'instant.
 <page id="0501" type="page">
 	<titre>Accueil</titre>
 	<modele idref="0201" />
-	<menu idref="040101" />
+	<!-- menu principal -->
+	<menu idref="0401" id="menu-principal01"/>
+	<!-- menu secondaire -->
+	<menu idref="0402" id="menu-secondaire01"/>
 	<encadre idref="0103" />
 </page>
