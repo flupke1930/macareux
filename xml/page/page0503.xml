@@ -7,9 +7,9 @@ Les balises en sont pas générique pour l'instant.
 
 
 <!-- Article -->
-<page id="0503">
+<page id="0503" type="article">
 	<titre>Je suis une légende</titre>
-	<menu idref="040101" />
+	<menu idref="0401" id="menu-principal01"/>
 	<modele idref="0101"/>	
 	<parent idref="0502"/><!-- lien de retour avec le sommaire-->
 	<date>
@@ -17,7 +17,7 @@ Les balises en sont pas générique pour l'instant.
 		<modification />
 		<peremption />
 	</date>
-	<encadre idref="0201" />
+	<encadre idref="0103" />
 	<menu idref="0401" />
 	<article idref="0101"/>
 </page>

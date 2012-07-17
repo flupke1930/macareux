@@ -16,7 +16,7 @@ include_once 'afficherArticleSommaire.php';
  * @param unknown_type $lesLignes
  * @param unknown_type $attrs
  */
-function fabricationUL($html,$ul,$lesEntreesXml) {
+function fabricationUL($pageHtml,$ul,$lesEntreesXml) {
 	global $glb_chemin_relatif ;
 	/*
 	 * Remplacement des éléments HTML par le contenu XML.
@@ -27,30 +27,27 @@ function fabricationUL($html,$ul,$lesEntreesXml) {
 		noeudSupprLesEnfants($ul);
 		// Entrées du menu
 		foreach ($lesEntreesXml as $ligne) {
-			$li =$html->createElement("li");
-			$a =$html->createElement("a");
-			$span=$html->createElement("span");
-				
-			$span->appendChild($html->createTextNode($ligne->firstChild->nodeValue));
-				
-				
+			$li =$pageHtml->createElement("li");
+			$a =$pageHtml->createElement("a");
+			$span=$pageHtml->createElement("span");
+			$span->appendChild($pageHtml->createTextNode($ligne->firstChild->nodeValue));
+
 			//Récupération des attributs de style dans le xml
 			$lesAttributs=recuperationAttributs($ligne);
-				
-				
-			//Attributs
+
+			// Boucle sur les attributs
 			foreach ($lesAttributs as $attribut) {
 				if ($attribut->name=="idRef") {
-					$page= new DOMDocument();
-					$page->load($glb_chemin_relatif."/xml/page/page".$attribut->value.".xml");
+					$pageXml= new DOMDocument();
+					$pageXml->load($glb_chemin_relatif."/xml/page/page".$attribut->value.".xml");
 					//Récupération des entree;
-					$xpath = new DOMXPath($page);
+					$xpath = new DOMXPath($pageXml);
 					$type = $xpath->query("/page/@type")->item(0)->value;
-					$a->setAttribute("href","afficher.php?idPage=".$attribut->value."&cheminModele=".$type);
+					$url=fabricationAffichageURL($attribut->value, $type);
+					$a->setAttribute("href",$url);
 				} else {
 					$a->setAttribute($attribut->name,$attribut->value);
 				}
-
 			}
 			$a->appendChild($span);
 			$li->appendChild($a);
@@ -62,7 +59,18 @@ function fabricationUL($html,$ul,$lesEntreesXml) {
 
 }
 
-/*
+/**
+ *
+ * fabrication d'une URL pour l'affichage d'une page HTML.
+ * @param unknown_type $idPage
+ * @param unknown_type $type
+ */
+function fabricationAffichageURL($idPage,$type){
+	$url="afficher.php?idPage=".$idPage."&cheminModele=".$type;
+	return $url;
+}
+
+/**
  * Affichage en debug du XML
  * */
 function debugXML($obj ){
@@ -99,28 +107,29 @@ function debugXML($obj ){
 
 /**
  * Fabrication du menu
+ * TODO: Vérifier la présence des attributs.
  */
-function fabricationMenu($html,$idref,$idMenu) {
+function fabricationMenu($pageHtml,$idref,$idMenu) {
 	global $glb_chemin_relatif ;
 	try {
 		//
 		$menu= new DOMDocument();
 		$menu->load($glb_chemin_relatif."xml/menu/menu".substr($idref,0,4).".xml");
 		// Localisation du menu (div) dans le modèle HTML.
-		$html_xpath = new DOMXPath($html);
-		$ul=$html_xpath->query("//div[@id='".$idMenu."']/ul")->item(0);
+		$pageHtml_xpath = new DOMXPath($pageHtml);
+		$ul=$pageHtml_xpath->query("//div[@id='".$idMenu."']/ul")->item(0);
 		// Récupération des entree;
 		$xpath = new DOMXPath($menu);
 		$lesEntreesXml = $xpath->query("/menu/entree");
-		$ul=fabricationUL($html,$ul,$lesEntreesXml);
+		$ul=fabricationUL($pageHtml,$ul,$lesEntreesXml);
 
-		
+
 
 
 	} catch (Exception $e) {
 		echo $e;
 	}
-	return $html;
+	return $pageHtml;
 }
 
 
@@ -131,7 +140,7 @@ function fabricationMenu($html,$idref,$idMenu) {
  * @param Tableau $atrbs attributs du style css
  * @param Tableau $ele
  */
-function fabricationDIV($html,$corpsHtml,$lesLignesXml,$atrbs,$ele,$idPageAppel) {
+function fabricationDIV($pageHtml,$corpsHtml,$lesLignesXml,$atrbs,$ele,$idPageAppel) {
 
 	global $glb_chemin_relatif;
 
@@ -159,12 +168,13 @@ function fabricationDIV($html,$corpsHtml,$lesLignesXml,$atrbs,$ele,$idPageAppel)
 				//
 				$i=0;
 				foreach ($lesGroupesXml as $groupeXml) {
+					// TODO : nettoyage
 					//	echo "<br>---------------------------------------------------------";
 					//	echo "<br>i=".$i++;
 					//	echo "<br>";
 
 					debugXML($groupeXml);
-					$div=$html->createElement("div");
+					$div=$pageHtml->createElement("div");
 					$div=initAttributs($div, $divAttribus);
 
 
@@ -176,9 +186,9 @@ function fabricationDIV($html,$corpsHtml,$lesLignesXml,$atrbs,$ele,$idPageAppel)
 					 * de l'article (titre, image, résumé).
 					 */
 
-					$h3 =$html->createElement("h3");
-					$span =$html->createElement("span");
-					$span->appendChild($html->createTextNode($groupeXml->getAttribute("titre")));
+					$h3 =$pageHtml->createElement("h3");
+					$span =$pageHtml->createElement("span");
+					$span->appendChild($pageHtml->createTextNode($groupeXml->getAttribute("titre")));
 					$h3->appendChild($span);
 					$div->appendChild($h3);
 					//
@@ -186,36 +196,51 @@ function fabricationDIV($html,$corpsHtml,$lesLignesXml,$atrbs,$ele,$idPageAppel)
 					//
 					$lesPagesXml=$groupeXml->getElementsByTagName("page");
 
-
-
-
-					foreach ($lesPagesXml as $pageXml)
+					foreach ($lesPagesXml as $pageXmlXml)
 					{
 						// Fabrication d'une ligne du sommaire.
-						$articleXml=$pageXml->getElementsByTagName("article")->item(0);
+						$articleXml=$pageXmlXml->getElementsByTagName("article")->item(0);
 						// Récupération de la ligne depuis le fichier article.
 						$listeContenu=recuperationContenuLigne($idPageAppel, $articleXml->getAttribute("idref"));
 
-						$div3 =$html->createElement("div");
+						$div3 =$pageHtml->createElement("div");
 
-						$img = $html->createElement("img");
+						$img = $pageHtml->createElement("img");
 						$img->setAttribute("src",$listeContenu["image"]["src"]);
 						$img->setAttribute("width",$listeContenu["image"]["largeur"]);
 						$img->setAttribute("length",$listeContenu["image"]["hauteur"]);
 
 
-						$h4 =$html->createElement("h4");
-						$h4->appendChild($html->createTextNode($listeContenu["titre"]));
+						$h4 = $pageHtml->createElement("h4");
+						$h4->appendChild($pageHtml->createTextNode($listeContenu["titre"]));
 
-						$p =$html->createElement("p");
-						$span=$html->createElement("span");
-						$span->appendChild($html->createTextNode( $listeContenu["resume"] ));
+						$p = $pageHtml->createElement("p");
+						$span=$pageHtml->createElement("span");
+						$span->appendChild($pageHtml->createTextNode( $listeContenu["resume"] ));
 						$p->appendChild($span);
 							
-						$a =$html->createElement("a");
-						$a->setAttribute("href",$glb_chemin_relatif.$groupeXml->getAttribute("uri").$glb_fichier_extension);
-						$span=$html->createElement("span");
-						$span->appendChild($html->createTextNode("plus"));
+						$a = $pageHtml->createElement("a");
+						//*
+						if ($atrbs["a"] ){
+							foreach ($atrbs["a"] as $attr) {
+								$a->setAttribute($attr->name,$attr->value);
+							}
+						}
+						//*/
+
+
+						// Il faut passer par l'article.
+
+						$pageXml= new DOMDocument();
+						$pageXml->load($glb_chemin_relatif."/xml/page/page".$pageXmlXml->getAttribute("uri").".xml");
+						$xpath = new DOMXPath($pageXml);
+						$type = $xpath->query("/page/@type")->item(0)->value;
+						$url=fabricationAffichageURL($pageXmlXml->getAttribute("uri"), $type);
+						$a->setAttribute("href",$url);
+
+
+						$span=$pageHtml->createElement("span");
+						$span->appendChild($pageHtml->createTextNode("plus"));
 						$a->appendChild($span);
 						//Ajout des attributs HTML (liés au modèle de présentation).
 						if ($atrbs["img"]){
@@ -233,11 +258,8 @@ function fabricationDIV($html,$corpsHtml,$lesLignesXml,$atrbs,$ele,$idPageAppel)
 								$p->setAttribute($attr->name,$attr->value);
 							}
 						}
-						if ($atrbs["a"] ){
-							foreach ($atrbs["a"] as $attr) {
-								$a->setAttribute($attr->name,$attr->value);
-							}
-						}
+
+
 
 						$div3->appendChild($img);
 						$div3->appendChild($h4);
@@ -245,7 +267,6 @@ function fabricationDIV($html,$corpsHtml,$lesLignesXml,$atrbs,$ele,$idPageAppel)
 						$div3->appendChild($p);
 						$div->appendChild($div3);
 						debugXML($div);
-						//debug_print_backtrace();
 					}// boucle article
 
 					$corpsHtml->appendChild($div);
@@ -272,10 +293,10 @@ function fabricationDIV($html,$corpsHtml,$lesLignesXml,$atrbs,$ele,$idPageAppel)
 /**
  *
  * Fabrication du sommaire.
- * @param DOMElement $html
+ * @param DOMElement $pageHtml
  * @param DOMDocument $xml
  */
-function fabricationSommaire($html,$xml,$idPage) {
+function fabricationSommaire($pageHtml,$xml,$idPage) {
 	global $glb_chemin_relatif ;
 
 	/*
@@ -284,15 +305,10 @@ function fabricationSommaire($html,$xml,$idPage) {
 	$xpath_xml = new DOMXPath($xml);
 	$lesLignesXml=$xpath_xml->query("/page/liste[@id='sommaire']");
 
-	//$xPath = new XPathQueryLength($doc);
-	//print $xPath->queryLength("/page/liste[@id='sommaire']/groupe/page");
-
-	// "=== nb de lignes:".$lesLignesXml->length."===";
-
 	/*
 	 * Récupération du sommaire HTML dans le modèle.
 	 */
-	$xpath_html = new DOMXPath($html);
+	$xpath_html = new DOMXPath($pageHtml);
 	$div=$xpath_html->query("//div[@id='corps-de-page']")->item(0);
 
 	/*
@@ -318,9 +334,9 @@ function fabricationSommaire($html,$xml,$idPage) {
 
 
 		//TODO: pb lien vers article ou bien vers la page.
-		$div=fabricationDIV($html,$div,$lesLignesXml,$atrbs,$ele,$idPage);
+		$div=fabricationDIV($pageHtml,$div,$lesLignesXml,$atrbs,$ele,$idPage);
 	}
-	return $html;
+	return $pageHtml;
 }
 
 /**
@@ -359,10 +375,10 @@ function initAttributs($ele,$lesAttributs){
 
 /**
  *  Fabrication des encradrés.
- *  @param $html code html.
+ *  @param $pageHtml code html.
  *  @param $idref reférence.
  */
-function fabricationEncadre($html,$idref) {
+function fabricationEncadre($pageHtml,$idref) {
 	global $glb_chemin_relatif ;
 
 	/*
@@ -378,13 +394,13 @@ function fabricationEncadre($html,$idref) {
 	/*
 	 * Localisation de l'encadre (div) dans le modèle.
 	 */
-	$html_xpath = new DOMXPath($html);
-	$div=$html_xpath->query("//div[@id='encadre']")->item(0);
+	$pageHtml_xpath = new DOMXPath($pageHtml);
+	$div=$pageHtml_xpath->query("//div[@id='encadre']")->item(0);
 
 	/* Titre
 	 * */
-	$h3 =$html->createElement("h3");
-	$h3->appendChild($html->createTextNode($titre->item(0)->firstChild->nodeValue));
+	$h3 =$pageHtml->createElement("h3");
+	$h3->appendChild($pageHtml->createTextNode($titre->item(0)->firstChild->nodeValue));
 	$div->appendChild($h3);
 
 
@@ -397,14 +413,40 @@ function fabricationEncadre($html,$idref) {
 	 * */
 	foreach ($lesLiens as $lien) {
 
-		$a = $html->createElement("a");
-		$a->appendChild($html->createTextNode($lien->firstChild->nodeValue));
+		$a = $pageHtml->createElement("a");
+		$a->appendChild($pageHtml->createTextNode($lien->firstChild->nodeValue));
 		$a->setAttribute("href",$lien->getAttribute("url"));
 		$div->appendChild($a);
 	}
 	//parcours récursif pour faire la substitution des noeuds
 
-	return $html;
+	return $pageHtml;
+}
+
+
+/**
+ * Fabrication d'un article.
+ */
+
+function fabricationArticle($pageHtml, $pageXml,$idRef) {
+	GLOBAL $glb_chemin_relatif;
+	//
+	// Récupération id article XML
+	//
+	$pageXml= new DOMDocument();
+	$pageXml->load($glb_chemin_relatif."/xml/article/article".$idRef.".xml");
+	
+	//
+	// Récupération code XML article
+	//
+
+	
+	//
+	// Remplacement
+	//
+	
+	return $pageHtml;
+	
 }
 
 /**
@@ -420,21 +462,21 @@ function fabricationPage($idPage,$cheminModele){
 	/*
 	 * Page (xml).
 	 * */
-	$page= new DOMDocument();
-	$page->load($glb_chemin_relatif."/xml/page/page".$idPage.".xml");
-	$titre=$page->getElementsByTagName("titre")->item(0);
-	$modele=$page->getElementsByTagName("modele")->item(0);
+	$pageXml= new DOMDocument();
+	$pageXml->load($glb_chemin_relatif."/xml/page/page".$idPage.".xml");
+	$titre=$pageXml->getElementsByTagName("titre")->item(0);
+	$modele=$pageXml->getElementsByTagName("modele")->item(0);
 
 	/*
 	 * Modele (html).
 	 * */
-	$html= new DOMDocument();
-	$html->load($glb_chemin_relatif."/html/".$cheminModele."/modele".$modele->getAttribute("idref").".html");
+	$pageHtml= new DOMDocument();
+	$pageHtml->load($glb_chemin_relatif."/html/".$cheminModele."/modele".$modele->getAttribute("idref").".html");
 
 
 	// On met le bon titre dans la page HTML à partir du titre XML.
-	$title=$html->getElementsByTagName("title")->item(0);
-	$t2 = $html->createTextNode($titre->firstChild->nodeValue);
+	$title=$pageHtml->getElementsByTagName("title")->item(0);
+	$t2 = $pageHtml->createTextNode($titre->firstChild->nodeValue);
 	if ($title->firstChild) {
 		$title->removeChild($title->firstChild);
 	}
@@ -443,33 +485,48 @@ function fabricationPage($idPage,$cheminModele){
 	/*
 	 * Fabrication du menu.
 	 */
-	$listeMenu=$page->getElementsByTagName("menu");
-	
+	$listeMenu=$pageXml->getElementsByTagName("menu");
+
 	if ($listeMenu!=null) {
 		foreach ($listeMenu as $menu){
-		$html=fabricationMenu($html,$menu->getAttribute("idref"),$menu->getAttribute("id"));
-	}}
+			$pageHtml=fabricationMenu($pageHtml,$menu->getAttribute("idref"),$menu->getAttribute("id"));
+		}
+	}
 
 	/*
 	 * Fabrication encadre.
 	 */
-	$encadre=$page->getElementsByTagName("encadre")->item(0);
+	$encadre=$pageXml->getElementsByTagName("encadre")->item(0);
 	if ($encadre!=null){
-		$html=fabricationEncadre($html,$encadre->getAttribute("idref"));
+		$pageHtml=fabricationEncadre($pageHtml,$encadre->getAttribute("idref"));
 	}
 
 	/*
 	 * Fabrication de la liste de sommaire.
 	 */
-	$sommaire=$page->getElementsByTagName("liste")->item(0);
+	$sommaire=$pageXml->getElementsByTagName("liste")->item(0);
 	if ($sommaire!=null) {
-		$html=fabricationSommaire($html, $page,$idPage);
+		$pageHtml=fabricationSommaire($pageHtml, $pageXml,$idPage);
 	}
+
+
+	/*
+	 * Fabrication d'un article
+	 */
+	$xpath = new DOMXPath($pageXml);
+	$article_idRef= $xpath->query("/page/article/@idref")->item(0)->value;
+	echo $article_idRef;
+	
+	
+	if ($article_idRef!=null) {
+		$pageHtml=fabricationArticle($pageHtml, $pageXml,$article_idRef);
+	}
+
 
 	/*
 	 * Affichage du html.
 	 */
-	echo $html->saveXML();
+	echo $pageHtml->saveXML();
 }
 
 /*
@@ -492,7 +549,6 @@ if (isset($_GET["idPage"]))
 } else
 {
 	$idPage="0501";
-	//$idPage="0503";
 }
 
 if (isset($_GET["cheminModele"]))
@@ -501,8 +557,6 @@ if (isset($_GET["cheminModele"]))
 } else
 {
 	$cheminModele="page";
-	//$cheminModele="article";
-	//$cheminModele="sommaire";
 }
 
 fabricationPage($idPage,$cheminModele);

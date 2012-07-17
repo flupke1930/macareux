@@ -7,7 +7,7 @@
 <!-- Sommaire -->
 <page id="0502" type="sommaire">
 	<titre>Sommaire</titre>
-	<menu idref="040101"/>
+	<menu idref="0401" id="menu-principal01"/>
 	
 	<modele idref="0301" />
 
@@ -18,15 +18,15 @@
 		de parution) -->
 	<liste id="sommaire">
 		<groupe idref="030101" titre="Album">
-			<page uri="page/0503">
+			<page uri="0503">
 				<article idref="0101" />
 			</page>
 		</groupe>
 		<groupe idref="030102" titre="Livre">
-			<page uri="page/0503">
+			<page uri="0503">
 				<article idref="0102" />
 			</page>
-			<page uri="page/0503">
+			<page uri="0503">
 				<article idref="0103" />
 			</page>
 		</groupe>
