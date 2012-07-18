@@ -61,16 +61,16 @@ function initAttributs($ele,$lesAttributs){
  * Affichage en debug du XML
  * */
 function debugXML($obj ){
-	//echo "---debugXML()---<br>";
-	//var_dump($obj);
+	echo "<pre style='border:dotted 2px;background:olive;margin:10px;padding:10px'>---debugXML()---<br>";
+	var_dump($obj);
 
 	$doc = new DOMDocument('1.0',"UTF-8");
 	if (get_class($obj)=="DOMNodeList"){
-
+echo "<br>--".$obj->length;
 		$i=0;
 		foreach ($obj as $l)
 		{
-			//	echo "--".$i++;
+			echo "<br>--".$i++;
 			$n=$doc->importNode($l,true);
 			$doc->appendChild($n);
 		}
@@ -84,6 +84,6 @@ function debugXML($obj ){
 
 	}
 
-	//	echo "<br>------<pre>".htmlentities($doc->saveXML());
-	//	echo "</pre>------";
+		echo "".htmlentities($doc->saveXML());
+		echo "</pre>";
 }

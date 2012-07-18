@@ -44,6 +44,8 @@ function recuperationContenu($xml_xpath,$champ,$attrbs){
 
 	// s'il existe un attr il est utilisé pour retrouver le bon contenu.
 	if ($attrbs){
+		
+		// Images
 		foreach ($attrbs as $attrb){
 			$ele=$xml_xpath->query("//article/".trim($champ)."[@taille='".$attrb->nodeValue."']")->item(0);
 			if ($ele->hasAttributes()) {
@@ -53,7 +55,24 @@ function recuperationContenu($xml_xpath,$champ,$attrbs){
 			}
 		}
 	} else {
-		$contenu=$xml_xpath->query("//article/".trim($champ))->item(0)->nodeValue;
+		
+		// Autres contenus.
+		$enfants=$xml_xpath->query("/article/".trim($champ)."/paragraphe");
+echo "<br/>".$champ." ".count($enfants);
+		debugXML($enfants);
+		if ($enfants->length>0) {
+			$tbl=array();
+			
+			foreach ($enfants as $enfant){
+			 $tbl[]= $enfant->nodeValue;
+			}
+			$contenu["paragraphe"]=$tbl;
+
+		} else {
+		$noeud=$xml_xpath->query("//article/".trim($champ))->item(0);
+			echo "+++".$noeud->nodeValue;
+			$contenu=$noeud->nodeValue;
+		}
 	}
 	return $contenu;
 }

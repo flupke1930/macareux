@@ -112,6 +112,20 @@ function fabricationArticleDIV($pageHtml,$divActu,$pageXml,$atrbs,$ele,$idPage,$
 	$span=$pageHtml->createElement("span");
 	$span->appendChild($titre);
 	$ele['h3']->appendChild($span);
+	$paragraphes=$listeContenu["corps"]["paragraphe"];
+	
+	foreach ($paragraphes as $para) {
+		$p =$pageHtml->createElement("p");
+		$p->appendChild($pageHtml->createTextNode($para));
+		$divActu->appendChild($p);
+		
+		
+//	$ele['p']->appendChild($pageHtml->createTextNode($para));
+	}
+//TODO: reprendre les attributs
+//TODO: faire une boucle sur les paragraphes
+//TODO: image	
+	
 }
 
 
