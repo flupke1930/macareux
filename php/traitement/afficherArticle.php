@@ -11,7 +11,7 @@ include_once 'afficherArticleMode.php';
 
 /**
  * TODO: doc le cartouche
- * Récupération 
+ * Récupération
  * @param  $idPageAppel
  * @param  $idArticle
  */
@@ -32,9 +32,9 @@ function recuperationArticleContenu($idPageAppel,$idArticle) {
 	$listeContenu=recupContenuType($xml_xpath,$affichageType);
 
 
-		echo "#####################listeContenu LIGNE $idPageAppel,$idArticle #############################<pre>";
-		var_dump($listeContenu);
-		echo "</pre>";
+	echo "#####################listeContenu LIGNE $idPageAppel,$idArticle #############################<pre>";
+	var_dump($listeContenu);
+	echo "</pre>";
 
 	return $listeContenu;
 }
@@ -67,18 +67,18 @@ function fabricationArticle($pageHtml, $pageXml,$idRef,$idPage) {
 		 * Récupération des éléments enfant de l'élément DIV du HTML.
 		 * */
 		$ele['h3']=$xpath_html->query("//div[@id='actualite-detail']/h3")->item(0);
-		$ele['img']=$xpath_html->query("//div[@id='actualite-detail']/div/img")->item(0);
-		$ele['h4']=$xpath_html->query("//div[@id='actualite-detail']/div/h4")->item(0);
-		$ele['p']=$xpath_html->query("//div[@id='actualite-detail']/div/p")->item(0);
+		$ele['img']=$xpath_html->query("//div[@id='actualite-detail']/img")->item(0);
+		$ele['h4']=$xpath_html->query("//div[@id='actualite-detail']/h4")->item(0);
+		$ele['p']=$xpath_html->query("//div[@id='actualite-detail']/p")->item(0);
 
 		/*
 		 * Recopie des attributs HTML de chaque élément.
 		 */
-		$atrbs["img"]=recuperationAttributs($ele['img']);
+		$atrbs["h3"]=recuperationAttributs($ele['h3']);
 		$atrbs["h4"]=recuperationAttributs($ele['h4']);
+		$atrbs["img"]=recuperationAttributs($ele['img']);
 		$atrbs["p"]=recuperationAttributs($ele['p']);
 		$atrbs["a"]=recuperationAttributs($ele['a']);
-
 
 		$div=fabricationArticleDIV($pageHtml,$div,$pageXml,$atrbs,$ele,$idPage,$idRef);
 	}
@@ -91,7 +91,7 @@ function fabricationArticle($pageHtml, $pageXml,$idRef,$idPage) {
 
 
 /**
- * 
+ *
  * Fabrication du DIV contenant l'article.
  * @param String $pageHtml
  * @param String $div
@@ -102,9 +102,16 @@ function fabricationArticle($pageHtml, $pageXml,$idRef,$idPage) {
  * @param int $idRef
  */
 
-function fabricationArticleDIV($pageHtml,$div,$pageXml,$atrbs,$ele,$idPage,$idRef)
+function fabricationArticleDIV($pageHtml,$divActu,$pageXml,$atrbs,$ele,$idPage,$idRef)
 {
+	global $glb_chemin_relatif;
 	$listeContenu=recuperationArticleContenu($idPage, $idRef);
+
+	noeudSupprLesEnfants($ele['h3']);
+	$titre=$pageHtml->createTextNode($listeContenu["titre"]);
+	$span=$pageHtml->createElement("span");
+	$span->appendChild($titre);
+	$ele['h3']->appendChild($span);
 }
 
 
