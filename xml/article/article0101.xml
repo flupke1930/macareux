@@ -5,7 +5,7 @@
 
 <!-- Article -->
 <article id="0101">
-	<page idref="0501" affichage="2" /><!-- Page (article ) -->
+	<page idref="0503" affichage="2" /><!-- Page (article ) -->
 	<page idref="0502" affichage="1" /><!-- Page (sommaire ) -->
 
 	<groupe idref="030101" />
@@ -20,7 +20,7 @@
 		<mode type="2">
 			<contenu>titre</contenu>
 			<contenu>corps</contenu>
-			<contenu>image_grande</contenu>
+			<contenu taille="grande">image</contenu>
 		</mode>
 	</affichage>
 
@@ -36,9 +36,9 @@
 	</resume>
 
 	<image taille="vignette" url="img" src="../../image/article/jesuisunelegende_100x50.jpg" largeur="100" hauteur="50" />
-
+	<image taille="grande" url="../../image/article/jesuisunelegende_100x50.jpg" largeur="" hauteur="" />
 	<corps>
-		<image taille="grande" url="" largeur="" hauteur="" />
+		<image taille="grande" url="../../image/article/jesuisunelegende_300.jpg" largeur="" hauteur="" />
 		<paragraphe>Robert Neville seul survivant d'une épidémie se retrouve
 			seul humain sur terre. L'action se situe sur la côte ouest des
 			états-unis en 1976-79.Le reste des humains sont devenus des vampires
