@@ -52,7 +52,7 @@ function fabricationSommaireDIV($pageHtml,$corpsHtml,$lesLignesXml,$atrbs,$ele,$
 					//	echo "<br>i=".$i++;
 					//	echo "<br>";
 
-					debugXML($groupeXml);
+					//debugXML($groupeXml);
 					$div=$pageHtml->createElement("div");
 					$div=initAttributs($div, $divAttribus);
 
@@ -151,7 +151,7 @@ function fabricationSommaireDIV($pageHtml,$corpsHtml,$lesLignesXml,$atrbs,$ele,$
 						$p->appendChild($a);
 						$div3->appendChild($p);
 						$div->appendChild($div3);
-						debugXML($div);
+				//		debugXML($div);
 					}// boucle article
 
 					$corpsHtml->appendChild($div);

@@ -28,52 +28,59 @@ function recupContenuType($xml_xpath,$type){
 	$mode= $xml_xpath->query("//article/affichage/mode[@type='".$type."']/contenu");
 	$i=0;
 	foreach ($mode as $contenuType) {
-		if ($contenuType->hasAttributes()) {
-			$attrbs = $contenuType->attributes;
-		}
-		$listeContenu[$contenuType->nodeValue]=recuperationContenu($xml_xpath, $contenuType->nodeValue,$attrbs);
+		$listeContenu[$contenuType->nodeValue]=recuperationContenu($xml_xpath, $contenuType);
 	}
 	return $listeContenu;
 }
 
 /**
  * * TODO: doc le cartouche
- * Récupère quel contenu doit être afficher.
+ * Récupère de l'élément qui doit être afficher.
  */
-function recuperationContenu($xml_xpath,$champ,$attrbs){
+function recuperationContenu($xml_xpath,$contenuType){
 
-	// s'il existe un attr il est utilisé pour retrouver le bon contenu.
-	if ($attrbs){
-		
-		// Images
-		foreach ($attrbs as $attrb){
-			$ele=$xml_xpath->query("//article/".trim($champ)."[@taille='".$attrb->nodeValue."']")->item(0);
-			if ($ele->hasAttributes()) {
-				foreach ($ele->attributes as $a) {
-					$contenu[$a->name]=$a->value;
-				}
+	//
+	// En fonction des attributs de
+	// l'élément "article/mode/contenu"
+	// on récupère les champs.
+	//
+	$attbr=$contenuType->attributes;
+	if ($attbr->length>0){
+		$req="//article/".trim($contenuType->nodeValue)."[@".$attbr->item(0)->name."='".$attbr->item(0)->value."']";
+		echo "<br/>req XPATH = ".$req;
+		$ele=$xml_xpath->query($req)->item(0);
+		debugXML($ele);
+//*
+		if ($ele->hasAttributes()) {
+			foreach ($ele->attributes as $a) {
+				$contenu[$a->name][$a->value]=$ele->firstChild->nodeValue;
 			}
 		}
-	} else {
+	//*/	
 		
-		// Autres contenus.
-		$enfants=$xml_xpath->query("/article/".trim($champ)."/paragraphe");
-echo "<br/>".$champ." ".count($enfants);
+		
+		echo "<pre>";
+		var_dump($contenu);
+		echo "</pre>";
+	} else {
+		// Autres contenus sans attribut.
+		//*
+		$enfants=$xml_xpath->query("/article/".trim($contenuType->nodeValue)."/paragraphe");
+		echo "<br/> champ=".$contenuType->nodeValue." ".count($enfants);
 		debugXML($enfants);
 		if ($enfants->length>0) {
 			$tbl=array();
-			
 			foreach ($enfants as $enfant){
-			 $tbl[]= $enfant->nodeValue;
+				$tbl[]= $enfant->nodeValue;
 			}
 			$contenu["paragraphe"]=$tbl;
-
 		} else {
-		$noeud=$xml_xpath->query("//article/".trim($champ))->item(0);
-			echo "+++".$noeud->nodeValue;
+			$noeud=$xml_xpath->query("//article/".trim($contenuType->nodeValue))->item(0);
+			echo "<br/>+++".$noeud->nodeValue;
 			$contenu=$noeud->nodeValue;
 		}
 	}
+	//*/
 	return $contenu;
 }
 

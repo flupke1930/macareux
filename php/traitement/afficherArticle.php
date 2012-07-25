@@ -32,9 +32,9 @@ function recuperationArticleContenu($idPageAppel,$idArticle) {
 	$listeContenu=recupContenuType($xml_xpath,$affichageType);
 
 
-	echo "#####################listeContenu LIGNE $idPageAppel,$idArticle #############################<pre>";
-	var_dump($listeContenu);
-	echo "</pre>";
+//	echo "#####################listeContenu LIGNE $idPageAppel,$idArticle #############################<pre>";
+//	var_dump($listeContenu);
+//	echo "</pre>";
 
 	return $listeContenu;
 }
@@ -68,14 +68,14 @@ function fabricationArticle($pageHtml, $pageXml,$idRef,$idPage) {
 		 * */
 		$ele['h3']=$xpath_html->query("//div[@id='actualite-detail']/h3")->item(0);
 		$ele['img']=$xpath_html->query("//div[@id='actualite-detail']/img")->item(0);
-		$ele['h4']=$xpath_html->query("//div[@id='actualite-detail']/h4")->item(0);
+		//$ele['h4']=$xpath_html->query("//div[@id='actualite-detail']/h4")->item(0);
 		$ele['p']=$xpath_html->query("//div[@id='actualite-detail']/p")->item(0);
 
 		/*
 		 * Recopie des attributs HTML de chaque élément.
 		 */
 		$atrbs["h3"]=recuperationAttributs($ele['h3']);
-		$atrbs["h4"]=recuperationAttributs($ele['h4']);
+	//	$atrbs["h4"]=recuperationAttributs($ele['h4']);
 		$atrbs["img"]=recuperationAttributs($ele['img']);
 		$atrbs["p"]=recuperationAttributs($ele['p']);
 		$atrbs["a"]=recuperationAttributs($ele['a']);
@@ -107,8 +107,9 @@ function fabricationArticleDIV($pageHtml,$divActu,$pageXml,$atrbs,$ele,$idPage,$
 	global $glb_chemin_relatif;
 	$listeContenu=recuperationArticleContenu($idPage, $idRef);
 
+	// Attention : Positionnement de la date dans le code HTML en dure dans le code PHP
 	noeudSupprLesEnfants($ele['h3']);
-	$titre=$pageHtml->createTextNode($listeContenu["titre"]);
+	$titre=$pageHtml->createTextNode($listeContenu["titre"]." [".$listeContenu["date"]["type"]["creation"]."]");
 	$span=$pageHtml->createElement("span");
 	$span->appendChild($titre);
 	$ele['h3']->appendChild($span);

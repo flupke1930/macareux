@@ -19,16 +19,15 @@
 		</mode>
 		<mode type="2">
 			<contenu>titre</contenu>
+			<contenu type="creation">date</contenu>
 			<contenu>corps</contenu>
 			<contenu taille="grande">image</contenu>
 		</mode>
 	</affichage>
 
 	<titre>Je suis une légende</titre>
-	<date>
-		<creation></creation>
-		<modification></modification>
-	</date>
+	<date type="creation">12-08-2007</date>
+	<date type="modification">13-09-2007</date>
 
 	<resume>
 		C'est le titre de ce roman de SF, écrit par Richard Matheson,
