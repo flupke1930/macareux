@@ -44,10 +44,6 @@ function fabricationMenu($pageHtml,$idref,$idMenu) {
 		$xpath = new DOMXPath($menu);
 		$lesEntreesXml = $xpath->query("/menu/entree");
 		$ul=fabricationUL($pageHtml,$ul,$lesEntreesXml);
-
-
-
-
 	} catch (Exception $e) {
 		echo $e;
 	}

@@ -59,9 +59,7 @@ function recuperationContenu($xml_xpath,$contenuType){
 	//*/	
 		
 		
-		echo "<pre>";
-		var_dump($contenu);
-		echo "</pre>";
+		
 	} else {
 		// Autres contenus sans attribut.
 		//*
@@ -81,6 +79,10 @@ function recuperationContenu($xml_xpath,$contenuType){
 		}
 	}
 	//*/
+	
+	echo "<pre>";
+		var_dump($contenu);
+		echo "</pre>";
 	return $contenu;
 }
 

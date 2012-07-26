@@ -107,8 +107,12 @@ function fabricationArticleDIV($pageHtml,$divActu,$pageXml,$atrbs,$ele,$idPage,$
 	global $glb_chemin_relatif;
 	$listeContenu=recuperationArticleContenu($idPage, $idRef);
 
-	// Attention : Positionnement de la date dans le code HTML en dure dans le code PHP
+	//Nettoyage du modèle HTML.
 	noeudSupprLesEnfants($ele['h3']);
+	$divActu->removeChild($ele['p']);
+	
+	
+	// Attention : Positionnement de la date dans le code HTML en dure dans le code PHP
 	$titre=$pageHtml->createTextNode($listeContenu["titre"]." [".$listeContenu["date"]["type"]["creation"]."]");
 	$span=$pageHtml->createElement("span");
 	$span->appendChild($titre);
@@ -117,6 +121,7 @@ function fabricationArticleDIV($pageHtml,$divActu,$pageXml,$atrbs,$ele,$idPage,$
 	
 	foreach ($paragraphes as $para) {
 		$p =$pageHtml->createElement("p");
+		$p = initAttributs($p, $atrbs["p"]);
 		$p->appendChild($pageHtml->createTextNode($para));
 		$divActu->appendChild($p);
 		
