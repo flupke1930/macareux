@@ -47,25 +47,22 @@ function recuperationContenu($xml_xpath,$contenuType){
 	$attbr=$contenuType->attributes;
 	if ($attbr->length>0){
 		$req="//article/".trim($contenuType->nodeValue)."[@".$attbr->item(0)->name."='".$attbr->item(0)->value."']";
-		echo "<br/>req XPATH = ".$req;
 		$ele=$xml_xpath->query($req)->item(0);
-		debugXML($ele);
-//*
+
 		if ($ele->hasAttributes()) {
 			foreach ($ele->attributes as $a) {
-				$contenu[$a->name][$a->value]=$ele->firstChild->nodeValue;
+				if ($ele->firstChild->nodeValue!=NULL){
+					$contenu[$a->name][$a->value]=$ele->firstChild->nodeValue;
+				}
+				else{
+					$contenu[$a->name]=$a->value;
+				}
 			}
 		}
-	//*/	
-		
-		
-		
+
 	} else {
 		// Autres contenus sans attribut.
-		//*
 		$enfants=$xml_xpath->query("/article/".trim($contenuType->nodeValue)."/paragraphe");
-		echo "<br/> champ=".$contenuType->nodeValue." ".count($enfants);
-		debugXML($enfants);
 		if ($enfants->length>0) {
 			$tbl=array();
 			foreach ($enfants as $enfant){
@@ -74,15 +71,10 @@ function recuperationContenu($xml_xpath,$contenuType){
 			$contenu["paragraphe"]=$tbl;
 		} else {
 			$noeud=$xml_xpath->query("//article/".trim($contenuType->nodeValue))->item(0);
-			echo "<br/>+++".$noeud->nodeValue;
 			$contenu=$noeud->nodeValue;
 		}
 	}
-	//*/
-	
-	echo "<pre>";
-		var_dump($contenu);
-		echo "</pre>";
+
 	return $contenu;
 }
 

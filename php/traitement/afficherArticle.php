@@ -32,9 +32,9 @@ function recuperationArticleContenu($idPageAppel,$idArticle) {
 	$listeContenu=recupContenuType($xml_xpath,$affichageType);
 
 
-//	echo "#####################listeContenu LIGNE $idPageAppel,$idArticle #############################<pre>";
-//	var_dump($listeContenu);
-//	echo "</pre>";
+	//	echo "#####################listeContenu LIGNE $idPageAppel,$idArticle #############################<pre>";
+	//	var_dump($listeContenu);
+	//	echo "</pre>";
 
 	return $listeContenu;
 }
@@ -75,7 +75,7 @@ function fabricationArticle($pageHtml, $pageXml,$idRef,$idPage) {
 		 * Recopie des attributs HTML de chaque élément.
 		 */
 		$atrbs["h3"]=recuperationAttributs($ele['h3']);
-	//	$atrbs["h4"]=recuperationAttributs($ele['h4']);
+		//	$atrbs["h4"]=recuperationAttributs($ele['h4']);
 		$atrbs["img"]=recuperationAttributs($ele['img']);
 		$atrbs["p"]=recuperationAttributs($ele['p']);
 		$atrbs["a"]=recuperationAttributs($ele['a']);
@@ -110,28 +110,31 @@ function fabricationArticleDIV($pageHtml,$divActu,$pageXml,$atrbs,$ele,$idPage,$
 	//Nettoyage du modèle HTML.
 	noeudSupprLesEnfants($ele['h3']);
 	$divActu->removeChild($ele['p']);
-	
-	
+
+
 	// Attention : Positionnement de la date dans le code HTML en dure dans le code PHP
+
+	// Titre
 	$titre=$pageHtml->createTextNode($listeContenu["titre"]." [".$listeContenu["date"]["type"]["creation"]."]");
 	$span=$pageHtml->createElement("span");
 	$span->appendChild($titre);
 	$ele['h3']->appendChild($span);
+
+	// Paragraphes
 	$paragraphes=$listeContenu["corps"]["paragraphe"];
-	
+
 	foreach ($paragraphes as $para) {
 		$p =$pageHtml->createElement("p");
 		$p = initAttributs($p, $atrbs["p"]);
 		$p->appendChild($pageHtml->createTextNode($para));
 		$divActu->appendChild($p);
-		
-		
-//	$ele['p']->appendChild($pageHtml->createTextNode($para));
 	}
-//TODO: reprendre les attributs
-//TODO: faire une boucle sur les paragraphes
-//TODO: image	
-	
+
+	// Image
+	$img=$listeContenu["image"];
+	$ele["img"]->setAttribute("src",$img["url"]);
+	//TODO: reprendre les attributs
+	//TODO  lien retour sommaire
 }
 
 
